@@ -1,2 +1,3 @@
 # Introduction-to-Artificial-Intelligence
-homework
+## 15 puzzle game (A*)
+##solved by java
