@@ -38,4 +38,25 @@ public class Tool {
           }
           return count;
       }
+      
+      public static int InverseNum(Map m){
+          int count = 0;
+          int[] arr = new int[16];
+          for(int i = 0; i < 4; i++){
+              for(int j = 0; j < 4; j++){
+                  arr[i*4+j] = m.map[i][j];
+              }
+          }
+          for(int k = 0; k < 16; k++){
+              if(arr[k] == 0)
+                  continue;
+              for(int t = k + 1; t < 16; t++){
+                  if(arr[t] == 0)
+                      continue;
+                  if(arr[t] < arr[k])
+                      count++;
+              }
+          }
+          return count;
+      }
 }
