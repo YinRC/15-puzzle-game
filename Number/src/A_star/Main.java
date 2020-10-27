@@ -9,6 +9,10 @@ public class Main {
     public static Map endMap = new Map(new int[][]{{ 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, 10, 11, 12 }, { 13, 14, 15, 0 }});
 
     public static void main(String[] args) {
+        if(Tool.InverseNum(beginMap) % 2 != 0){
+            System.out.println("Fail !!! can not be sovled");
+            return;
+        }
         Open openTable = new Open();
         Close closeTable = new Close();
         //初始状态填入Open表
@@ -18,9 +22,7 @@ public class Main {
 
         while (openTable.openArr.size() != 0){
             curMap = openTable.getMin();
-            //System.out.println(Arrays.deepToString(curMap.map));
-            //System.out.println("depth : "+curMap.depth+"    Eval : "+curMap.f);
-            closeTable.closeArr.add(curMap);
+
             if(curMap.equals(endMap)){
                 System.out.println("SUCCESS!");
                 show.add(curMap);
@@ -35,6 +37,8 @@ public class Main {
                 }
                 break;
             }
+            closeTable.closeArr.add(curMap);
+
             //上下左右依次扩展
             for(int k = 0; k < 4; k++){
                 Map newMap = null;
