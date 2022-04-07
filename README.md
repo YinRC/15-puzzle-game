@@ -1,33 +1,31 @@
-# 15 puzzle game (A*)
+# 15 数码问题 (A* 算法)
 
-*code in java by IntelliJ IDEA*
+#### 主要数据结构 - Map
 
-#### the main object - Map
+> 抽象数据结构
 
-> Attributes
+> 1. *int\[][]* **map** 存储状态
+> 2. *int* **i**, **j** 标记空白的位置 **用 0 表示**
+> 3. *Map* **parent** 存储父结点
+> 4.  *ArrayList<Map>* **child** 存储子结点列表
+> 5. *int* **f**, **h**, **depth** 量化状态信息
 
-> 1. *int\[][]* **map** to store statuses
-> 2. *int* **i**, **j** to mark the position of the blank **using  0 to represent**
-> 3. *Map* **parent** to record the parent node
-> 4.  *ArrayList<Map>* **child** to record the list of child nodes
-> 5. *int* **f**, **h**, **depth** to quantify statues
-
-> Methods
+> 方法
 >
 > 1. ```java
->    public boolean equals(Map m) //compare two Map object
+>    public boolean equals(Map m) // 比较两个Map 对象
 >    ```
 >
 > 2. ```java
->    //calculate a new map and revalue it to produce child node
->    //try these directions
+>    // 计算并产生新的子结点
+>    // 向四个方向依次做尝试
 >    public Map up()
 >    public Map down()
 >    public Map left()
 >    public Map right()
 >    ```
 
-#### heuristic function(Tool.java) ：
+#### 启发函数(Tool.java) ：
 
 > 1. by distance 
 >
